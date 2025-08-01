@@ -1,10 +1,15 @@
----
+# Headcount-Optimization Tool
 
-## Excel VBA usage
+Synthetic demo of the labour-planning model that saved **\$252 K per month** during my Amazon internship.
 
-1. Download **`excel/HeadcountModel.xlsm`** (or the blank `template.xlsx` if you prefer).
-2. Open Excel → press **Alt + F11** to open VBA editor.  
-3. `File ▸ Import File…` → choose **`excel/vba/Module1.bas`**.  
-4. Fill the **Input** sheet (columns A–C) then run macro **OptimizeHeadcount**  
-   (**Alt + F8** → select macro → *Run*).  
-5. Column **D** is populated with the required FTE per size bucket.
+## Dataset
+| File | Purpose |
+|------|---------|
+| `data/raw/shift_productivity_sample.csv` | tiny sample (10 rows) |
+| `data/generator/generate_shift_data.py` | script to generate a larger dataset |
+
+## Quick start
+```bash
+pip install -r requirements.txt
+python data/generator/generate_shift_data.py --days 14      # regenerate data
+jupyter notebook notebooks/01_optimize_demo.ipynb
